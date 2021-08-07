@@ -29,6 +29,7 @@ module.exports = {
       primary: "#004499",
       secondary: "#03264C",
       highlight: "#00C3D3",
+      info: "#A7BCD6",
     },
     spacing: {
       px: "1px",

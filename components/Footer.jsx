@@ -43,7 +43,7 @@ const socialMedia = [
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-indigo-600 text-white pt-5 pb-7">
+    <footer className="w-full bg-primary text-white pt-5 pb-7">
       <div className="px-8 py-12 mx-auto max-w-7xl">
         <div className="grid grid-cols-2 gap-10 mb-3 md:grid-cols-3 lg:grid-cols-12 lg:gap-20">
           <div className="col-span-3">
