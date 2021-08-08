@@ -32,6 +32,7 @@ module.exports = {
       highlight: "#00C3D3",
       info: "#A7BCD6",
       subheading: "#838383",
+      close: "#9CADC3",
     },
     spacing: {
       px: "1px",

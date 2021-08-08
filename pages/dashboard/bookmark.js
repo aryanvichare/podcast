@@ -5,6 +5,7 @@ import { useAuth } from "@/lib/auth";
 import { fetchBookmarks } from "@/lib/firestore";
 import striptags from "striptags";
 import Link from "next/link";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 const BookmarkedItem = ({
   episode: { id, title, image, description },
@@ -27,6 +28,10 @@ const BookmarkedItem = ({
               {formattedText}
             </p>
           </div>
+          <AiFillCloseCircle
+            className="cursor-pointer text-close text-4xl w-32 justify-self-start self-start"
+            onClick={() => {}}
+          />
         </div>
       </a>
     </Link>
