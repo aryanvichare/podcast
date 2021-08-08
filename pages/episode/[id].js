@@ -138,7 +138,7 @@ const EpisodePage = () => {
             { name: episode?.title, link: "/", clickable: false },
           ]}
         />
-        <div className="container max-w-screen-zl mx-auto px-4 py-12">
+        <div className="container max-w-screen-xl mx-auto px-4 py-12">
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-7">
               <div className="flex items-center">
