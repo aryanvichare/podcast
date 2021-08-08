@@ -38,7 +38,7 @@ const SocialSignIn = ({ setOpen, disableClose = false }) => {
         )}
         <div className="flex flex-col justify-center items-center w-full p-4">
           <div className="flex items-center mr-4 mb-6">
-            <img className="h-12" src="/logo.png" alt="Podcare+ Logo" />
+            <img className="h-12" src="/./logo.svg" alt="Podcare+ Logo" />
             <h1 className="text-white font-bold text-2xl ml-2">Podcare+</h1>
           </div>
           <p className="text-center text-md mt-2 text-white font-bold">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import Logo from "../public/logo.png";
+import Logo from "../public/logo.svg";
 import Person from "../public/home-person.png";
 import Transcript from "../public/transcript.png";
 import Translate from "../public/translate.png";

@@ -48,7 +48,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 gap-10 mb-3 md:grid-cols-3 lg:grid-cols-12 lg:gap-20">
           <div className="col-span-3">
             <h1 className="text-xl font-extrabold leading-none text-white select-none">
-              Podcast+
+              Podcare+
             </h1>
             <p className="my-4 text-xs leading-normal text-indigo-100">
               We all want to be able to have the same opportunities. To be able
@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col items-start justify-between pt-10 mt-10 border-t border-indigo-500 md:flex-row md:items-center">
           <p className="mb-6 text-sm text-left text-blue-200 md:mb-0">
-            © Copyright {new Date().getFullYear()} Podcast+. All Rights
+            © Copyright {new Date().getFullYear()} Podcare+. All Rights
             Reserved.
           </p>
           <div className="flex items-start justify-start space-x-6 md:items-center md:justify-center">

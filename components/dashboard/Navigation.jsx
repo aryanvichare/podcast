@@ -41,14 +41,20 @@ const Navigation = () => {
     <div className="overflow-y-scroll lg:overflow-y-auto sticky min-h-screen z-40 top-0 bg-blue-600 w-64 lg:w-72">
       <div className="h-full flex flex-col items-start justify-between">
         <div className="w-full block">
-          <h1 className="text-white font-bold text-3xl pt-6 px-4">Podcast+</h1>
+          <div className="flex items-center pt-6 px-4">
+            <img className="w-8 h-8 mr-2" src="/logo.svg" alt="Podcare+ Logo" />
+            <h1 className="text-white font-bold text-2xl md:text-3xl">
+              Podcare+
+            </h1>
+          </div>
+
           <div className="pt-6">
             <h2 className="pl-4 pb-2 text-sm uppercase text-blue-200 font-bold">
               Menu
             </h2>
             <nav className="pl-4 flex flex-col space-y-2 pr-4">
               {links.map((l) => (
-                <Link href={l.href}>
+                <Link href={l.href} key={l.name}>
                   <a
                     className={clsx(
                       "pl-2 w-full flex flex-row items-center py-2 text-white transition-all ease-in-out duration-150 hover:bg-blue-500 bg-opacity-50 rounded-md",
