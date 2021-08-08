@@ -4,27 +4,32 @@ import Layout from "@/components/dashboard/Layout";
 import { useAuth } from "@/lib/auth";
 import { fetchBookmarks } from "@/lib/firestore";
 import striptags from "striptags";
+import Link from "next/link";
 
 const BookmarkedItem = ({
-  episode: { title, image, description },
+  episode: { id, title, image, description },
   formattedText,
 }) => {
   return (
-    <div className="flex flex-row items-center p-4 rounded-md border border-gray-300">
-      <img className="w-48 h-48 rounded" src={image} alt={title} />
-      <div className="ml-4">
-        <h3 className="text-blue-600 text-2xl font-bold">{title}</h3>
-        <p className="text-gray-500 leading-relaxed line-clamp-2 mb-2">
-          {striptags(description)}
-        </p>
-        <p className="text-black">
-          <span className="bg-yellow-400 bg-opacity-40 mr-2">
-            Highlighted Text:
-          </span>
-          {formattedText}
-        </p>
-      </div>
-    </div>
+    <Link href={`/episode/${id}`}>
+      <a>
+        <div className="flex flex-row items-center p-4 rounded-md border border-gray-300">
+          <img className="w-48 h-48 rounded" src={image} alt={title} />
+          <div className="ml-4">
+            <h3 className="text-blue-600 text-2xl font-bold">{title}</h3>
+            <p className="text-gray-500 leading-relaxed line-clamp-2 mb-2">
+              {striptags(description)}
+            </p>
+            <p className="text-black">
+              <span className="bg-yellow-400 bg-opacity-40 mr-2">
+                Highlighted Text:
+              </span>
+              {formattedText}
+            </p>
+          </div>
+        </div>
+      </a>
+    </Link>
   );
 };
 

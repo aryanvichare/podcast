@@ -38,7 +38,7 @@ const Navigation = () => {
   const router = useRouter();
 
   return (
-    <div className="overflow-y-scroll lg:overflow-y-auto sticky min-h-screen z-40 top-0 bg-blue-600 w-64 lg:w-72">
+    <div className="overflow-y-scroll lg:overflow-y-auto sticky min-h-screen z-40 top-0 bg-primary w-64 lg:w-72">
       <div className="h-full flex flex-col items-start justify-between">
         <div className="w-full block">
           <div className="flex items-center pt-6 px-4">

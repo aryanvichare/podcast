@@ -27,6 +27,7 @@ module.exports = {
       purple: colors.violet,
       pink: colors.pink,
       primary: "#004499",
+      primaryAccent: "#2569BF",
       secondary: "#03264C",
       highlight: "#00C3D3",
       info: "#A7BCD6",
