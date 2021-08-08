@@ -16,6 +16,7 @@ import {
   FaBackward,
   FaForward,
 } from "react-icons/fa";
+import { transcript } from "data/transcript";
 
 const API_KEY = process.env.NEXT_PUBLIC_PODCAST_API_KEY;
 const API_SECRET = process.env.NEXT_PUBLIC_PODCAST_API_SECRET;
@@ -25,33 +26,7 @@ const HASH_DATA = API_KEY + API_SECRET + API_HEADER_TIME;
 sha1Hash.update(HASH_DATA);
 const API_HASH_HEADER = sha1Hash.digest("hex");
 
-const sampleTranscript = `Adam Wathan has been obsessed with computers since he was a
-                  kid. In fact, he was introduced to computers by his 1st grade
-                  librarian.. and his first programming project was using
-                  Q-Basic, following a tutorial on how to make a pro wrestling
-                  simulator. During his time in university, he wasn’t enjoying
-                  the programming curriculum and ended up dropping out to play
-                  in his band, and working odd jobs to support his music career.
-                  During this, he got into the production side of music, and
-                  started a home studio to record local bands. Four years after
-                  he quit programming, he started tinkering with the same
-                  framework used to make Winamp – called reaper – and fell in
-                  love with pogromming all over again. At this point, he tried
-                  school again, but post internship, he decided to go straight
-                  into the field without finishing his degree. These days, he is
-                  married with a young family. Besides staying busy with that,
-                  he still finds time to play games with his remote friends, and
-                  occasionally trains for powerlifting. He met his business
-                  partner, Steve, in college, and hacked on side projects
-                  together. These side projects led to the creation of a mini
-                  CSS framework, which Wathan started using throughout other
-                  projects, growing it into something he was quite proud of. In
-                  fact, while live-streaming some coding, he was surprised by
-                  the influx of people asking what it was… and where they could
-                  get it. He decided to open source the framework in 2017, and
-                  it has steadily grown and grown in usage – to the tune of
-                  millions of downloads a month. This is the creation story of
-                  Tailwind CSS and Tailwind Labs.`;
+const sampleTranscript = transcript;
 
 const EpisodePage = () => {
   const auth = useAuth();
