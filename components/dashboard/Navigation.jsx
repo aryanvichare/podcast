@@ -8,6 +8,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/router";
 import clsx from "clsx";
+import { useAuth } from "@/lib/auth";
 
 const links = [
   {
@@ -33,6 +34,7 @@ const links = [
 ];
 
 const Navigation = () => {
+  const auth = useAuth();
   const router = useRouter();
 
   return (
@@ -65,13 +67,13 @@ const Navigation = () => {
           <div className="h-full flex pl-4 justify-start items-center">
             <img
               className="w-8 h-8 sm:w-12 sm:h-12 rounded-full"
-              src="https://media-exp1.licdn.com/dms/image/C4E03AQFru0RCZ7iBCA/profile-displayphoto-shrink_400_400/0/1623107074140?e=1633564800&v=beta&t=krsdhC-VBWnxJPdvTRfhyHf54OJ05mVnTqui_WQAXpk"
-              alt="Aryan Vichare"
+              src={auth?.user?.photoUrl}
+              alt={auth?.user?.name}
             />
             <div className="flex flex-col pl-2">
-              <p className="text-white font-bold">Aryan Vichare</p>
+              <p className="text-white font-bold">{auth?.user?.name}</p>
               <p className="text-white text-[10px] w-24 sm:w-auto truncate">
-                aryanvichare10@gmail.com
+                {auth?.user?.email}
               </p>
             </div>
           </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import { useAuth } from "@/lib/auth";
+import router from "next/router";
 
 const SocialSignIn = ({ setOpen, disableClose = false }) => {
   const auth = useAuth();
@@ -36,8 +37,9 @@ const SocialSignIn = ({ setOpen, disableClose = false }) => {
           </svg>
         )}
         <div className="flex flex-col justify-center items-center w-full p-4">
-          <div className="flex mr-4">
-            <img className="h-24" src="/images/logo.png" alt="Podcast Logo" />
+          <div className="flex items-center mr-4 mb-6">
+            <img className="h-12" src="/logo.png" alt="Podcare+ Logo" />
+            <h1 className="text-white font-bold text-2xl ml-2">Podcare+</h1>
           </div>
           <p className="text-center text-md mt-2 text-white font-bold">
             Login to get full access to your account
@@ -45,7 +47,12 @@ const SocialSignIn = ({ setOpen, disableClose = false }) => {
         </div>
         <div className="mt-2 px-4 flex flex-col space-y-4 items-center justify-center">
           <button
-            onClick={() => auth.signInWithGoogle().then(() => setOpen(false))}
+            onClick={() =>
+              auth.signInWithGoogle().then(() => {
+                setOpen(false);
+                router.push("/dashboard/browse");
+              })
+            }
             className="bg-white border-2 w-full flex flex-row justify-center items-center rounded shadow-sm transition duration-200 ease-in-out transform hover:-translate-y-1"
           >
             <div className="bg-white inline-block p-2 rounded m-1">

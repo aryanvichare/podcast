@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Logo from "../public/logo.png";
@@ -6,8 +7,10 @@ import Transcript from "../public/transcript.png";
 import Translate from "../public/translate.png";
 import Bookmarks from "../public/bookmarks.png";
 import Footer from "@/components/Footer";
+import SocialSignIn from "../components/SocialSignIn";
 
 export default function Home() {
+  const [showSignIn, setShowSignIn] = useState(false);
   return (
     <div>
       <Head>
@@ -41,9 +44,12 @@ export default function Home() {
               everyone
             </p>
             <p className="text-xl text-white my-5">- No exception.</p>
-            <div className="bg-secondary font-bold inline-block rounded-lg text-white px-5 py-2 cursor-pointer mb-20">
+            <button
+              onClick={() => setShowSignIn(true)}
+              className="bg-secondary font-bold inline-block rounded-lg text-white px-5 py-2 cursor-pointer mb-20"
+            >
               Try our app
-            </div>
+            </button>
           </div>
           <div className="absolute bottom-0 right-0 self-end ">
             <Image src={Person} alt="Person with glasses" />
@@ -110,6 +116,7 @@ export default function Home() {
         </div>
       </div>
       <Footer />
+      {showSignIn && <SocialSignIn setOpen={setShowSignIn} />}
     </div>
   );
 }
