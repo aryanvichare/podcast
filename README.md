@@ -1,5 +1,4 @@
 ![alt text](https://res.cloudinary.com/coingems/image/upload/v1628360466/banner_gtuj9k.png)
-![alt text](https://res.cloudinary.com/coingems/image/upload/v1628398410/Screen_Shot_2021-08-08_at_11.52.59_tsgncd.png)
 
 ***
 
