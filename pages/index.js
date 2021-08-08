@@ -37,7 +37,7 @@ export default function Home() {
         <div className="flex flex-row pl-20 my-20">
           <div className="flex-row">
             <p className="text-4xl font-bold text-white inline pr-4">
-              Make podcast accessible <br />
+              Make podcasts accessible <br />
               for
             </p>
             <p className="text-4xl font-bold text-white bg-highlight rounded  inline-block p-1">
