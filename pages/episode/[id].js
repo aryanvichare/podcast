@@ -6,6 +6,7 @@ import crypto from "crypto";
 import axios from "axios";
 import LanguageDropdown from "@/components/episode/LanguageDropdown";
 import Recommendations from "@/components/episode/Recommendations";
+import TranscriptSkeleteon from "@/components/skeleton/TranscriptSkeleton";
 import { Popover } from "react-text-selection-popover";
 import { useAuth } from "@/lib/auth";
 import { addBookmark } from "@/lib/firestore";
@@ -16,7 +17,6 @@ import {
   FaBackward,
   FaForward,
 } from "react-icons/fa";
-import { transcript } from "data/transcript";
 
 const API_KEY = process.env.NEXT_PUBLIC_PODCAST_API_KEY;
 const API_SECRET = process.env.NEXT_PUBLIC_PODCAST_API_SECRET;
@@ -25,8 +25,6 @@ const sha1Hash = crypto.createHash("sha1");
 const HASH_DATA = API_KEY + API_SECRET + API_HEADER_TIME;
 sha1Hash.update(HASH_DATA);
 const API_HASH_HEADER = sha1Hash.digest("hex");
-
-const sampleTranscript = transcript;
 
 const EpisodePage = () => {
   const auth = useAuth();
@@ -37,8 +35,8 @@ const EpisodePage = () => {
     code: "en",
   });
   const [episode, setEpisode] = useState(null);
-  const [englishTranscript, _] = useState(sampleTranscript);
-  const [episodeTranscript, setEpisodeTranscript] = useState(sampleTranscript);
+  const [englishTranscript, setEnglishTranscript] = useState(null);
+  const [episodeTranscript, setEpisodeTranscript] = useState(null);
 
   const router = useRouter();
   const { id } = router.query;
@@ -64,6 +62,28 @@ const EpisodePage = () => {
         setEpisode(data.episode);
       });
   }, [id]);
+
+  useEffect(() => {
+    const headers = {
+      "Content-Type": "application/json",
+      "User-Agent": "SuperPodcastPlayer/1.8",
+      "X-Auth-Key": API_KEY,
+      "X-Auth-Date": API_HEADER_TIME,
+      Authorization: API_HASH_HEADER,
+    };
+    if (episode) {
+      axios
+        .post(`http://bf4196b27b84.ngrok.io/transcribe`, {
+          headers,
+          url: episode.enclosureUrl,
+        })
+        .then(async (response) => {
+          const data = response.data;
+          setEpisodeTranscript(data.transcript);
+          setEnglishTranscript(data.transcript);
+        });
+    }
+  }, [episode]);
 
   useEffect(() => {
     if (language.code === "en") {
@@ -146,7 +166,11 @@ const EpisodePage = () => {
                   ref={(el) => el != null && setRef(el)}
                   className="prose prose-md"
                 >
-                  {episodeTranscript}
+                  {episodeTranscript ? (
+                    episodeTranscript
+                  ) : (
+                    <TranscriptSkeleteon />
+                  )}
                 </p>
                 {process.browser && (
                   <Popover
