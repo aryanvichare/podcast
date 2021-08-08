@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Heading from "@/components/dashboard/Heading";
 import Layout from "@/components/dashboard/Layout";
 import { useRouter } from "next/router";
@@ -10,6 +10,12 @@ import { Popover } from "react-text-selection-popover";
 import { useAuth } from "@/lib/auth";
 import { addBookmark } from "@/lib/firestore";
 import toast, { Toaster } from "react-hot-toast";
+import {
+  FaPlayCircle,
+  FaPauseCircle,
+  FaBackward,
+  FaForward,
+} from "react-icons/fa";
 
 const API_KEY = process.env.NEXT_PUBLIC_PODCAST_API_KEY;
 const API_SECRET = process.env.NEXT_PUBLIC_PODCAST_API_SECRET;
@@ -121,6 +127,16 @@ const EpisodePage = () => {
       document.selection.empty();
     }
   };
+  let [audio, setAudio] = useState(0);
+  let [audioPlay, setAudioPlay] = useState(true);
+
+  useEffect(() => {
+    const updateTime = setInterval(() => {
+      if (audioPlay) {
+        setAudio((audio) => audio + 0.1);
+      }
+    }, 1500);
+  }, [audioPlay]);
 
   return (
     <Layout>
@@ -188,6 +204,63 @@ const EpisodePage = () => {
                 Recommendation
               </h1>
               <Recommendations />
+            </div>
+          </div>
+        </div>
+        <audio id="podcast" src={episode?.enclosureUrl} autoPlay="true"></audio>
+        <div className="sticky bottom-0 right-0 bg-white h-32 flex flex-col items-center">
+          {/* seekbar */}
+          <div className="w-full flex flex-row items-center mb-2">
+            <div
+              className="h-2 bg-primary self-start mt-1 transition duration-700 ease-in-out"
+              style={{ width: `${audio}%` }}
+            ></div>
+            <div className="bg-primary rounded-full h-4 w-4"></div>
+            <div
+              className="h-2 bg-gray-200 self-start mt-1"
+              style={{ width: `${99 - audio}%` }}
+            ></div>
+          </div>
+          {/* player */}
+          <div className="flex flex-row content-between w-full items-center">
+            <div className="flex flex-row w-3/4">
+              {episode ? (
+                <img
+                  src={episode?.image}
+                  className=" ml-8 p-1 h-24 w-24 rounded-xl "
+                  alt={episode?.title}
+                />
+              ) : (
+                <div className="ml-8 p-1 h-24 w-24 bg-gray-200 animate-pulse" />
+              )}
+              <div className="h-24 flex flex-col justify-center ml-5">
+                <div className="text-primary font-bold">
+                  {episode ? episode.title : "..."}
+                </div>
+                <div className="text-subheading">
+                  {episode ? episode.feedTitle : "-"}
+                </div>
+              </div>
+            </div>
+            {/* Controls */}
+            <div className="w-1/5 flex flex-row content-between mr-32 items-center">
+              <FaBackward className="cursor-pointer text-primary text-4xl w-32 " />
+              {audioPlay ? (
+                <FaPauseCircle
+                  className="cursor-pointer text-primary text-5xl w-32"
+                  onClick={() => {
+                    console.log("CLICKED");
+                    setAudioPlay(false);
+                  }}
+                />
+              ) : (
+                <FaPlayCircle
+                  className="cursor-pointer text-primary text-5xl w-32"
+                  onClick={() => setAudioPlay(true)}
+                />
+              )}
+
+              <FaForward className="cursor-pointer text-primary text-4xl w-32 " />
             </div>
           </div>
         </div>

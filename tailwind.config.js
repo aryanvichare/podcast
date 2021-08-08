@@ -31,6 +31,7 @@ module.exports = {
       secondary: "#03264C",
       highlight: "#00C3D3",
       info: "#A7BCD6",
+      subheading: "#838383",
     },
     spacing: {
       px: "1px",
