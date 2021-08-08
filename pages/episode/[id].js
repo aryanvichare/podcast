@@ -142,7 +142,7 @@ const EpisodePage = () => {
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-7">
               <div className="flex items-center">
-                <h1 className="text-blue-600 text-2xl font-bold">
+                <h1 className="text-primary text-2xl font-bold">
                   Transcript in
                 </h1>
                 <LanguageDropdown
@@ -168,7 +168,7 @@ const EpisodePage = () => {
                             left: `${clientRect.left + clientRect.width}px`,
                             top: `${clientRect.top - 50}px`,
                           }}
-                          className={`cursor-pointer absolute -ml-48 w-[150px] bg-blue-500 font-bold hover:bg-blue-600 py-2 text-center text-white rounded`}
+                          className={`cursor-pointer absolute -ml-48 w-[150px] bg-primary font-bold hover:bg-primaryAccent py-2 text-center text-white rounded`}
                         >
                           <button
                             className="w-full h-full font-bold"
@@ -184,7 +184,7 @@ const EpisodePage = () => {
               </div>
             </div>
             <div className="col-span-5">
-              <h1 className="text-blue-600 text-2xl font-bold">
+              <h1 className="text-primary text-2xl font-bold">
                 Recommendation
               </h1>
               <Recommendations />

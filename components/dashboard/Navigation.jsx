@@ -57,8 +57,8 @@ const Navigation = () => {
                 <Link href={l.href} key={l.name}>
                   <a
                     className={clsx(
-                      "pl-2 w-full flex flex-row items-center py-2 text-white transition-all ease-in-out duration-150 hover:bg-blue-500 bg-opacity-50 rounded-md",
-                      router.pathname === l.href && "bg-blue-500"
+                      "pl-2 w-full flex flex-row items-center py-2 text-white transition-all ease-in-out duration-150 hover:bg-primaryAccent bg-opacity-75 rounded-md",
+                      router.pathname === l.href && "bg-primaryAccent"
                     )}
                   >
                     <l.icon className="w-6 h-6 text-white mr-2" />
@@ -69,7 +69,7 @@ const Navigation = () => {
             </nav>
           </div>
         </div>
-        <div className="block w-full bg-blue-500 h-24">
+        <div className="block w-full bg-primaryAccent h-24">
           <div className="h-full flex pl-4 justify-start items-center">
             <img
               className="w-8 h-8 sm:w-12 sm:h-12 rounded-full"

@@ -10,7 +10,7 @@ const Heading = ({ crumbs }) => {
       <Breadcrumb crumbs={crumbs} />
       <button
         onClick={() => auth.signOut()}
-        className="inline-block px-4 py-2 rounded-md bg-blue-600 focus:outline-none hover:bg-blue-700 text-white font-medium text-sm mt-2"
+        className="inline-block px-4 py-2 rounded-md bg-primary focus:outline-none hover:bg-primaryAccent text-white font-medium text-sm mt-2"
       >
         Log out
       </button>

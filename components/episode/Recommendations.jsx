@@ -25,8 +25,8 @@ const RecommendationItem = ({
         <div className="cursor-pointer inline-flex flex-row items-center px-4 py-2 hover:bg-gray-50">
           <img className="w-24 h-24 rounded-md" src={image} alt={title} />
           <div className="ml-4">
-            <h2 className="font-bold text-blue-600 text-xl">{title}</h2>
-            <p className="text-sm font-medium text-blue-600">{author}</p>
+            <h2 className="font-bold text-primary text-xl">{title}</h2>
+            <p className="text-sm font-medium text-primary">{author}</p>
             <p className="text-xs text-gray-400">
               {moment(new Date(newestItemPublishTime * 1000)).format(
                 "MMMM Do YYYY"

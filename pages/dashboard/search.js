@@ -60,7 +60,7 @@ const Search = () => {
         />
         <div className="container max-w-screen-lg mx-auto px-4 py-12">
           <div className="flex items-center">
-            <h1 className="text-blue-600 text-xl font-bold mt-[4px]">
+            <h1 className="text-primary text-xl font-bold mt-[4px]">
               Search Podcasts
             </h1>
             <div className="flex items-center uppercase text-gray-400 text-sm pt-2 ml-6">

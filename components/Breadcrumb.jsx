@@ -10,7 +10,7 @@ const Breadcrumb = ({ crumbs }) => {
           <p className="font-sans font-medium text-gray-700 leading-snug">
             {c.clickable ? (
               <Link href={c.link}>
-                <a className="underline text-blue-400">{c.name}</a>
+                <a className="underline text-primaryAccent">{c.name}</a>
               </Link>
             ) : (
               c.name

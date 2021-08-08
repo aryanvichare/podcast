@@ -44,7 +44,7 @@ const BrowsePodcasts = () => {
           ]}
         />
         <div className="container max-w-screen-lg mx-auto px-4 py-12">
-          <h1 className="text-blue-600 text-xl font-bold">Trending</h1>
+          <h1 className="text-primary text-xl font-bold">Trending</h1>
           {isLoading || error ? (
             <div className="mt-12 w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {Array.from({ length: 60 }, (_, i) => i + 1).map((_, idx) => (
