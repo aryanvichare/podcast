@@ -73,7 +73,7 @@ const EpisodePage = () => {
     };
     if (episode) {
       axios
-        .post(`http://bf4196b27b84.ngrok.io/transcribe`, {
+        .post(`https://bf4196b27b84.ngrok.io/transcribe`, {
           headers,
           url: episode.enclosureUrl,
         })
